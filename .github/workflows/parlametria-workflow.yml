@@ -1,4 +1,4 @@
-name: CI
+name: Parlametria
 
 on: [push]
 
@@ -6,17 +6,12 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-18.04
-    strategy:
-      matrix:
-        node_version: [10]
 
     steps:
-    - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node_version }}
-      uses: actions/setup-node@v1
-      with:
-        version: ${{ matrix.node_version }}
-
-    - name: npm install
-      run: |
-        npm install        
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 10.x
+      - run: npm install
+      - run: npm run build
+      - run: npm run test    
