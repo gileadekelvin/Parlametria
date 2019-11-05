@@ -13,6 +13,6 @@ jobs:
         with:
           node-version: 10.x
       - run: npm install
-      - run: ng build --prod
-      - run: ng lint
-      - run: ng test -browsers ChromeHeadless   
+      - run: npm run build
+      - run: npm run lint
+      - run: npm rum test -browsers ChromeHeadless   
